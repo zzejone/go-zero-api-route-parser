@@ -2,7 +2,6 @@ package apiparser
 
 import (
 	"fmt"
-	"path/filepath"
 	"strings"
 
 	"github.com/zeromicro/go-zero/tools/goctl/api/parser"
@@ -23,11 +22,11 @@ func NewParser() *Parser {
 func (p *Parser) ParseFiles(filePaths ...string) (ParseResult, error) {
 	result := make(ParseResult)
 	for _, filePath := range filePaths {
-		routes, err := p.ParseFile(filePath)
+		info, err := p.ParseFile(filePath)
 		if err != nil {
 			return nil, fmt.Errorf("解析文件 %s 失败: %w", filePath, err)
 		}
-		result[filepath.Base(filePath)] = routes
+		result[filePath] = info
 	}
 	return result, nil
 }
