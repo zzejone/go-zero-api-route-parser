@@ -1,4 +1,4 @@
-module github.com/zzejone/tools/go-zero-api-route-parser
+module github.com/zzejone/go-zero-api-route-parser
 
 go 1.27.0
 
